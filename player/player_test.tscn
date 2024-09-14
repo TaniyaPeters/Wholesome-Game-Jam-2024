@@ -7,6 +7,8 @@ colors = PackedColorArray(0.277637, 0.365693, 1, 1, 0.771964, 0.730897, 0.728309
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_cdjgp"]
 gradient = SubResource("Gradient_1o46r")
+width = 5760
+height = 1080
 fill_to = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4n7i5"]
@@ -17,13 +19,12 @@ fill_to = Vector2(0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="BackgroundImage" type="Sprite2D" parent="Camera2D"]
-scale = Vector2(21.9688, 12.6562)
+[node name="BackgroundImage" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_cdjgp")
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 271)
-scale = Vector2(-41.2467, 2.52638)
+position = Vector2(0, 441)
+scale = Vector2(300, 11.44)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
@@ -35,7 +36,8 @@ scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_v0i76")
 
 [node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2(253, 105)
+position = Vector2(499, 294)
+rotation = -0.595962
 scale = Vector2(-10.1506, 2.21443)
 metadata/_edit_group_ = true
 
@@ -48,8 +50,8 @@ scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_v0i76")
 
 [node name="Ground3" type="StaticBody2D" parent="."]
-position = Vector2(-194, 29)
-scale = Vector2(-10.8751, 2.97871)
+position = Vector2(1169, 283)
+scale = Vector2(59.7539, 6.27171)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
@@ -61,3 +63,4 @@ scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_v0i76")
 
 [node name="Player" parent="." instance=ExtResource("1_5p5u3")]
+scale = Vector2(2.75577, 2.75577)
