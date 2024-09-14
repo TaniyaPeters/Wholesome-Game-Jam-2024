@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsyjngi1lj78m"]
+
+[ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player.tscn" id="1_5p5u3"]
+
+[sub_resource type="Gradient" id="Gradient_1o46r"]
+colors = PackedColorArray(0.277637, 0.365693, 1, 1, 0.771964, 0.730897, 0.728309, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cdjgp"]
+gradient = SubResource("Gradient_1o46r")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n7i5"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_v0i76"]
+
+[node name="PlayerTest" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BackgroundImage" type="Sprite2D" parent="Camera2D"]
+scale = Vector2(21.9688, 12.6562)
+texture = SubResource("GradientTexture2D_cdjgp")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 271)
+scale = Vector2(-41.2467, 2.52638)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_4n7i5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground"]
+modulate = Color(0.291204, 0.392649, 0.189903, 1)
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_v0i76")
+
+[node name="Ground2" type="StaticBody2D" parent="."]
+position = Vector2(253, 105)
+scale = Vector2(-10.1506, 2.21443)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+shape = SubResource("RectangleShape2D_4n7i5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground2"]
+modulate = Color(0.291204, 0.392649, 0.189903, 1)
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_v0i76")
+
+[node name="Ground3" type="StaticBody2D" parent="."]
+position = Vector2(-194, 29)
+scale = Vector2(-10.8751, 2.97871)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+shape = SubResource("RectangleShape2D_4n7i5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground3"]
+modulate = Color(0.291204, 0.392649, 0.189903, 1)
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_v0i76")
+
+[node name="Player" parent="." instance=ExtResource("1_5p5u3")]

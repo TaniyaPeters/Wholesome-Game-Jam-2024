@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtd8f15s62vwb"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_k8nra"]
+[ext_resource type="Texture2D" uid="uid://dgkgvs7sd3r05" path="res://player/mushroomcat.png" id="2_m127k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_astbw"]
+radius = 25.0
+height = 94.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_k8nra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_astbw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -1.5)
+scale = Vector2(0.78125, 0.789063)
+texture = ExtResource("2_m127k")
