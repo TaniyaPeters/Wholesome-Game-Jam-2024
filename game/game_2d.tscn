@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://c7t70yce8oky3"]
 
 [ext_resource type="Script" path="res://game/game_2d.gd" id="1_m42hk"]
+[ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player_2d.tscn" id="3_we32d"]
 [ext_resource type="Texture2D" uid="uid://ctff6mu3gopx6" path="res://icon_dark.svg" id="4_hrqgr"]
-[ext_resource type="PackedScene" path="res://player/player_2d.tscn" id="4_noa5d"]
 [ext_resource type="Texture2D" uid="uid://ccgmsu8n2gy25" path="res://icon.svg" id="4_raakw"]
 [ext_resource type="PackedScene" uid="uid://42dteda40tcg" path="res://text-box/text_box.tscn" id="5_gs4qp"]
 
@@ -80,7 +80,7 @@ modulate = Color(0.291204, 0.392649, 0.189903, 1)
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_v0i76")
 
-[node name="Player2D" parent="." instance=ExtResource("4_noa5d")]
+[node name="Player2D" parent="." instance=ExtResource("3_we32d")]
 scale = Vector2(2.75577, 2.75577)
 
 [node name="Node2D" type="Node2D" parent="."]
