@@ -1,3 +1,79 @@
-[gd_scene format=3 uid="uid://cu7c2oto10pco"]
+[gd_scene load_steps=7 format=3 uid="uid://cu7c2oto10pco"]
 
-[node name="Text-box-template" type="Panel"]
+[ext_resource type="Script" path="res://text-box/margin_container.gd" id="1_uiy3u"]
+[ext_resource type="Texture2D" uid="uid://bdse352eq21xt" path="res://text-box/Rounded White Felt Texture.png" id="2_pqhuk"]
+[ext_resource type="Texture2D" uid="uid://1750xhyr8x8s" path="res://text-box/Text Box Border.png" id="3_gnr7f"]
+[ext_resource type="FontFile" uid="uid://dippmgo683fq8" path="res://text-box/Stitched Letters.png" id="4_he7cc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cedwy"]
+texture = ExtResource("2_pqhuk")
+texture_margin_left = 160.538
+texture_margin_top = 155.897
+texture_margin_right = 89.4476
+texture_margin_bottom = 154.126
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(-5.19733, 0.210205, 1054.2, 499.79)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lhn2s"]
+texture = ExtResource("3_gnr7f")
+texture_margin_left = 203.631
+texture_margin_top = 209.527
+texture_margin_right = 163.543
+texture_margin_bottom = 248.904
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = -1
+anchor_left = -1.026
+anchor_bottom = 0.402
+offset_left = -28.08
+offset_bottom = -0.160004
+script = ExtResource("1_uiy3u")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cedwy")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.5
+anchor_right = 0.968
+anchor_bottom = 0.5
+offset_left = 0.759998
+offset_top = -184.5
+offset_right = -0.560059
+offset_bottom = 196.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lhn2s")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -720.5
+offset_top = -91.5
+offset_right = 800.5
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1.05888e-06, 0.635209, 0.722861, 1)
+theme_override_fonts/normal_font = ExtResource("4_he7cc")
+theme_override_font_sizes/normal_font_size = 100
+text = "HELLO MY NAME IS TANIYA"
+fit_content = true
+
+[node name="LetterTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="LetterTimer" to="." method="_on_letter_timer_timeout"]
