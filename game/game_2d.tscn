@@ -1,9 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7t70yce8oky3"]
+[gd_scene load_steps=27 format=4 uid="uid://c7t70yce8oky3"]
 
 [ext_resource type="Script" path="res://game/game_2d.gd" id="1_m42hk"]
-[ext_resource type="PackedScene" path="res://player/player_2d.tscn" id="3_we32d"]
-[ext_resource type="Texture2D" uid="uid://ctff6mu3gopx6" path="res://icon_dark.svg" id="4_hrqgr"]
-[ext_resource type="Texture2D" uid="uid://ccgmsu8n2gy25" path="res://icon.svg" id="4_raakw"]
+[ext_resource type="Texture2D" uid="uid://pcyimv8thfrr" path="res://resources/Bright White Felt Texture.png" id="2_72i8w"]
+[ext_resource type="Texture2D" uid="uid://bqxs1pe7bvgeb" path="res://resources/White Felt Texture.png" id="2_dvy4j"]
+[ext_resource type="Texture2D" uid="uid://1f4lj5ymet5a" path="res://resources/Sun.png" id="3_f4y2s"]
+[ext_resource type="Texture2D" uid="uid://ckpt3x4dh8wuv" path="res://resources/Cloud 1.png" id="3_w3lgj"]
+[ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player_2d.tscn" id="3_we32d"]
+[ext_resource type="Texture2D" uid="uid://10cixwpy1my4" path="res://resources/Cloud 2.png" id="4_tywjx"]
+[ext_resource type="Texture2D" uid="uid://cnvd4rkg4wj2t" path="res://resources/Cloud 3.png" id="5_6jn3d"]
+[ext_resource type="Texture2D" uid="uid://bpl32gbvtgs7n" path="res://resources/Mountain Tileable.png" id="7_b7h2k"]
+[ext_resource type="Texture2D" uid="uid://bmf8rps4s1cuv" path="res://resources/Forest Tileable.png" id="7_udam4"]
+[ext_resource type="Texture2D" uid="uid://d1c2eqs6so7ea" path="res://resources/Orange House.png" id="7_xl8ht"]
+[ext_resource type="Texture2D" uid="uid://dripfsiaehyku" path="res://resources/Blue House.png" id="8_2oslg"]
+[ext_resource type="Texture2D" uid="uid://dsdvhd1j73ioq" path="res://resources/Green House.png" id="8_qp7mi"]
+[ext_resource type="Texture2D" uid="uid://cdwjwh7po4s6" path="res://resources/Yellow House.png" id="9_5khwf"]
+[ext_resource type="Texture2D" uid="uid://d355iidifisx3" path="res://resources/Train Front.png" id="12_3n300"]
+[ext_resource type="Script" path="res://train/train.gd" id="12_iaebw"]
+[ext_resource type="Texture2D" uid="uid://ckstfdrn0h5a4" path="res://resources/Train Cart.png" id="12_sqcxx"]
+[ext_resource type="Texture2D" uid="uid://b7xqvx0qyj1io" path="res://resources/Ground Texture.png" id="14_w1svh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8mpeu"]
 normal = Vector2(1, 0)
@@ -5589,23 +5603,10 @@ shape = SubResource("WorldBoundaryShape2D_e30ph")
 [node name="Player2D" parent="." instance=ExtResource("3_we32d")]
 scale = Vector2(2.75577, 2.75577)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(156, 286)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_l3814")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Button" type="Button" parent="."]
-offset_left = 367.0
-offset_top = -323.0
-offset_right = 1248.0
-offset_bottom = 8.0
-theme_override_font_sizes/font_size = 216
-text = "HELLO"
-
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 74.0
-offset_top = -288.0
-offset_right = 202.0
-offset_bottom = -160.0
-texture_normal = ExtResource("4_raakw")
-texture_pressed = ExtResource("4_hrqgr")
-texture_hover = ExtResource("4_hrqgr")
+[connection signal="body_entered" from="Train/TrainBoardingArea" to="Train" method="_on_train_boarding_area_body_entered"]
