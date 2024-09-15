@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dq8nt800hw2hv"]
 
-[ext_resource type="PackedScene" uid="uid://bd10odprhrcgf" path="res://text-box/text-interface.tscn" id="1_b40dm"]
+[ext_resource type="Script" path="res://text-box/test_lines.gd" id="1_ibf7s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clrlq"]
 radius = 30.0
@@ -22,11 +22,11 @@ height = 100.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-364, 96)
+script = ExtResource("1_ibf7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 visible = false
 position = Vector2(-20, 35)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_clrlq")
 debug_color = Color(0.573559, 0.551038, 0.178921, 0.42)
 
@@ -41,5 +41,3 @@ position = Vector2(-4.5, 254.375)
 scale = Vector2(1143, 137.25)
 mesh = SubResource("BoxMesh_ss2ns")
 texture = SubResource("Texture2DRD_e83li")
-
-[node name="Text-interface" parent="." instance=ExtResource("1_b40dm")]
