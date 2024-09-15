@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://foq0njdm6mnh"]
+[gd_scene load_steps=17 format=4 uid="uid://oha8h4k13eiw"]
 
 [ext_resource type="Material" uid="uid://dvo3m4emeve4i" path="res://tapestry/TapestryBack.tres" id="1_bf3ya"]
 [ext_resource type="Material" uid="uid://bdefywr1mx08b" path="res://tapestry/TapestryGame.tres" id="2_2i2p1"]
