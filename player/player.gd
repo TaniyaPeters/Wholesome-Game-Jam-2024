@@ -1,34 +1,41 @@
-extends CharacterBody2D
+class_name Player
+extends Node3D
 
 
-const SPEED = 600.0
-const JUMP_VELOCITY = -400.0
-
-const DEFAULT_GRAVITY_MULTIPLIER = 1.0
-const FALL_GRAVITY_MULTIPLIER = 1.5
+@export var camera: Camera3D
+@export var camera_outside: Camera3D
+@export var camera_top: Camera3D
 
 
-var gravity_multiplier := 1.0
+@onready var outside_transform := camera.transform
+@onready var top_transform := camera_top.transform
 
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		if velocity.y > 0: # Falling
-			gravity_multiplier = FALL_GRAVITY_MULTIPLIER
-		else:
-			gravity_multiplier = DEFAULT_GRAVITY_MULTIPLIER
-		velocity += get_gravity() * gravity_multiplier * delta
+var tween: Tween
+var in_transition := false
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("change_view"):
+		toggle_view()
+
+func toggle_view():
+	if in_transition:
+		return
+
+	if camera_outside.current:
+		transition_camera(camera_outside, camera_top, 2.0)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		transition_camera(camera_top, camera_outside, 2.0)
 
-	move_and_slide()
+
+func transition_camera(from_camera: Camera3D, to_camera: Camera3D, duration: float):
+	in_transition = true
+	tween = create_tween().set_parallel(true)
+
+	camera.make_current()
+	camera.transform = from_camera.transform
+	tween.tween_property(camera, "transform", to_camera.transform, duration).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(camera, "fov", to_camera.fov, duration).set_trans(Tween.TRANS_QUAD)
+	tween.chain().tween_callback(to_camera.make_current)
+	tween.chain().tween_callback(func(): in_transition = false)

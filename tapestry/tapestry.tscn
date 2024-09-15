@@ -17,7 +17,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_j3qdf")
 
 [node name="SubViewport" type="SubViewport" parent="." index="1"]
 disable_3d = true
-size = Vector2i(5760, 1080)
+size = Vector2i(3072, 1080)
 render_target_update_mode = 4
 
 [node name="PlayerTest" parent="SubViewport" index="0" instance=ExtResource("2_2te5d")]
