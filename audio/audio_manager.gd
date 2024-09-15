@@ -2,10 +2,11 @@ extends Node
 
 
 @export var ambience_streams: Array[AudioStream]
+@export var ambience_stream_volumes: Array[float]
 
 
 const AMBIENCE_VOLUME_FADEIN := 0.0
-const AMBIENCE_VOLUME_FADEOUT := -24.0
+const AMBIENCE_VOLUME_FADEOUT := -36.0
 
 
 @onready var ambience_bus = AudioServer.get_bus_index("Ambience")
@@ -24,8 +25,14 @@ func _process(delta: float) -> void:
 
 
 func generate_ambience_streams():
-	for ambience_stream in ambience_streams:
-		print(ambience_stream)
+	AudioServer.set_bus_volume_db(ambience_bus, AMBIENCE_VOLUME_FADEOUT)
+	for i in ambience_streams.size():
+		var stream_player = AudioStreamPlayer.new()
+		stream_player.stream = ambience_streams[i]
+		stream_player.autoplay = true
+		stream_player.volume_db = ambience_stream_volumes[i]
+		stream_player.bus = "Ambience"
+		add_child(stream_player)
 
 
 func fade_bus_volume_to(bus_index: int, value_db: float):

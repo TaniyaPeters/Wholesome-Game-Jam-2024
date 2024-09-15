@@ -10,9 +10,4 @@
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_hci2i")
 ambience_streams = Array[AudioStream]([ExtResource("2_fmbh6"), ExtResource("3_2wqaw"), ExtResource("2_b15xi"), ExtResource("5_uqpbm"), ExtResource("6_qqgv1")])
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_b15xi")
-volume_db = 24.0
-autoplay = true
-bus = &"Ambience"
+ambience_stream_volumes = Array[float]([6.0, 12.0, 12.0, -2.0, 6.0])
