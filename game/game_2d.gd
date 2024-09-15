@@ -3,7 +3,8 @@ extends Node2D
 
 
 @onready var pausable_nodes := [
-	$Player2D
+	$Player2D,
+	$Clouds
 ]
 
 

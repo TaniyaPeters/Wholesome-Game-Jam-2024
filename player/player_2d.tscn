@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtd8f15s62vwb"]
 
 [ext_resource type="Script" path="res://player/player_2d.gd" id="1_yv7t0"]
-[ext_resource type="Texture2D" uid="uid://dgkgvs7sd3r05" path="res://player/mushroomcat.png" id="2_4cedm"]
+[ext_resource type="Texture2D" uid="uid://dbv75sy1vwtt3" path="res://resources/Cat No Stitch.png" id="2_2d6rr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_astbw"]
-radius = 25.0
-height = 94.0
+radius = 22.0
+height = 46.0
 
 [node name="Player2D" type="CharacterBody2D"]
 script = ExtResource("1_yv7t0")
@@ -15,5 +15,5 @@ shape = SubResource("CapsuleShape2D_astbw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -1.5)
-scale = Vector2(0.78125, 0.789063)
-texture = ExtResource("2_4cedm")
+scale = Vector2(0.0273834, 0.0276573)
+texture = ExtResource("2_2d6rr")

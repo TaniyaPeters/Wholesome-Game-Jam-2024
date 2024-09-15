@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://oha8h4k13eiw"]
+[gd_scene load_steps=19 format=4 uid="uid://oha8h4k13eiw"]
 
 [ext_resource type="Material" uid="uid://dvo3m4emeve4i" path="res://tapestry/TapestryBack.tres" id="1_bf3ya"]
 [ext_resource type="Material" uid="uid://bdefywr1mx08b" path="res://tapestry/TapestryGame.tres" id="2_2i2p1"]
 [ext_resource type="PackedScene" uid="uid://c7t70yce8oky3" path="res://game/game_2d.tscn" id="2_dohdv"]
 [ext_resource type="Script" path="res://tapestry/tapestry_game_viewport.gd" id="3_dpftv"]
 [ext_resource type="Script" path="res://tapestry/full_tapestry_sub_viewport.gd" id="4_7qxd8"]
+[ext_resource type="Texture2D" uid="uid://bqxs1pe7bvgeb" path="res://resources/White Felt Texture.png" id="4_jwsgm"]
 [ext_resource type="Script" path="res://player/camera_2d.gd" id="5_pr44u"]
 [ext_resource type="Script" path="res://include/gui_3d.gd" id="6_tnf3p"]
 
@@ -62,6 +63,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jmdls")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jijeq"]
+albedo_color = Color(0.384314, 0.635294, 0.941176, 1)
+albedo_texture = ExtResource("4_jwsgm")
+uv1_scale = Vector3(30, 30, 30)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_8qrf7"]
 viewport_path = NodePath("FullTapestrySubViewport")
 
@@ -93,6 +99,7 @@ script = ExtResource("6_tnf3p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.56171)
 mesh = SubResource("ArrayMesh_cq71a")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_jijeq")
 surface_material_override/1 = SubResource("StandardMaterial3D_cwibq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -119,6 +126,8 @@ script = ExtResource("3_dpftv")
 
 [node name="Camera2D" type="Camera2D" parent="GameSubViewport" node_paths=PackedStringArray("game_2d")]
 position = Vector2(-960, -540)
+limit_left = 0
+limit_smoothed = true
 script = ExtResource("5_pr44u")
 game_2d = NodePath("../Game2D")
 
