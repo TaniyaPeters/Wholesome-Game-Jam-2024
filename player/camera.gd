@@ -15,7 +15,7 @@ var in_transition := false
 
 
 func _ready() -> void:
-	game_2d = $"../Tapestry".get_node("SubViewport/Game2D")
+	game_2d = $"../Tapestry".get_node("%GameSubViewport/Game2D")
 
 
 func _input(event: InputEvent) -> void:
