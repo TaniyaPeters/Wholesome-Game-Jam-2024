@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgjpraore4oc5"
+path="res://.godot/imported/Drawing 01.wav-9a242a47daf8bc62efd282821584d917.sample"
+
+[deps]
+
+source_file="res://audio/ambience/Drawing 01.wav"
+dest_files=["res://.godot/imported/Drawing 01.wav-9a242a47daf8bc62efd282821584d917.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

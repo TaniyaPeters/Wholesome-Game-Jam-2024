@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7t70yce8oky3"]
+[gd_scene load_steps=10 format=3 uid="uid://c7t70yce8oky3"]
 
 [ext_resource type="Script" path="res://game/game_2d.gd" id="1_m42hk"]
 [ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player_2d.tscn" id="3_we32d"]
 [ext_resource type="Texture2D" uid="uid://ctff6mu3gopx6" path="res://icon_dark.svg" id="4_hrqgr"]
 [ext_resource type="Texture2D" uid="uid://ccgmsu8n2gy25" path="res://icon.svg" id="4_raakw"]
+[ext_resource type="PackedScene" uid="uid://42dteda40tcg" path="res://text-box/text_box.tscn" id="5_gs4qp"]
 
 [sub_resource type="Gradient" id="Gradient_1o46r"]
 colors = PackedColorArray(0.277637, 0.365693, 1, 1, 0.771964, 0.730897, 0.728309, 1)
@@ -102,3 +103,9 @@ offset_bottom = -160.0
 texture_normal = ExtResource("4_raakw")
 texture_pressed = ExtResource("4_hrqgr")
 texture_hover = ExtResource("4_hrqgr")
+
+[node name="TextBox" parent="." instance=ExtResource("5_gs4qp")]
+offset_left = 64.0
+offset_top = -398.0
+offset_right = 433.0
+offset_bottom = -153.0
