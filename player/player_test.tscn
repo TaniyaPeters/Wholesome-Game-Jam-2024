@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dsyjngi1lj78m"]
 
-[ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player.tscn" id="1_5p5u3"]
+[ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player_2d.tscn" id="1_5p5u3"]
 
 [sub_resource type="Gradient" id="Gradient_1o46r"]
 colors = PackedColorArray(0.277637, 0.365693, 1, 1, 0.771964, 0.730897, 0.728309, 1)
@@ -16,10 +16,12 @@ fill_to = Vector2(0, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_v0i76"]
 
 [node name="PlayerTest" type="Node2D"]
+position = Vector2(960, 540)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="BackgroundImage" type="Sprite2D" parent="."]
+position = Vector2(8, -4)
 texture = SubResource("GradientTexture2D_cdjgp")
 
 [node name="Ground" type="StaticBody2D" parent="."]
@@ -45,6 +47,19 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_4n7i5")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Ground2"]
+modulate = Color(0.291204, 0.392649, 0.189903, 1)
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_v0i76")
+
+[node name="Ground4" type="StaticBody2D" parent="."]
+position = Vector2(370, -215)
+scale = Vector2(20, 20)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
+shape = SubResource("RectangleShape2D_4n7i5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground4"]
 modulate = Color(0.291204, 0.392649, 0.189903, 1)
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_v0i76")
