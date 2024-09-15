@@ -1,14 +1,16 @@
+class_name Player2D
 extends CharacterBody2D
 
 
 const SPEED = 600.0
 const JUMP_VELOCITY = -400.0
-
 const DEFAULT_GRAVITY_MULTIPLIER = 1.0
 const FALL_GRAVITY_MULTIPLIER = 1.5
 
 
 var gravity_multiplier := 1.0
+var input_axis := 1.0
+var direction := 1.0
 
 
 func _physics_process(delta: float) -> void:
@@ -25,9 +27,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
+	input_axis = Input.get_axis("move_left", "move_right")
+	if input_axis:
+		direction = input_axis
+		velocity.x = input_axis * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 

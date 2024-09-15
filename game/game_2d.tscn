@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsyjngi1lj78m"]
+[gd_scene load_steps=8 format=3 uid="uid://c7t70yce8oky3"]
 
-[ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player_2d.tscn" id="1_5p5u3"]
-[ext_resource type="Script" path="res://player/camera_2d.gd" id="1_hc15h"]
+[ext_resource type="Script" path="res://game/game_2d.gd" id="1_m42hk"]
+[ext_resource type="Script" path="res://player/camera_2d.gd" id="2_8sk3p"]
+[ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player_2d.tscn" id="3_we32d"]
 
 [sub_resource type="Gradient" id="Gradient_1o46r"]
 colors = PackedColorArray(0.277637, 0.365693, 1, 1, 0.771964, 0.730897, 0.728309, 1)
@@ -16,11 +17,12 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_v0i76"]
 
-[node name="PlayerTest" type="Node2D"]
+[node name="Game2D" type="Node2D"]
 position = Vector2(960, 540)
+script = ExtResource("1_m42hk")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("1_hc15h")
+script = ExtResource("2_8sk3p")
 player = NodePath("../Player")
 
 [node name="BackgroundImage" type="Sprite2D" parent="."]
@@ -55,7 +57,7 @@ scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_v0i76")
 
 [node name="Ground4" type="StaticBody2D" parent="."]
-position = Vector2(370, -215)
+position = Vector2(-414, -168)
 scale = Vector2(20, 20)
 metadata/_edit_group_ = true
 
@@ -80,7 +82,7 @@ modulate = Color(0.291204, 0.392649, 0.189903, 1)
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_v0i76")
 
-[node name="Player" parent="." instance=ExtResource("1_5p5u3")]
+[node name="Player" parent="." instance=ExtResource("3_we32d")]
 scale = Vector2(2.75577, 2.75577)
 
 [node name="Node2D" type="Node2D" parent="."]
