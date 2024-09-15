@@ -1,13 +1,13 @@
 extends Node
 
+@onready var player_2d: Player2D = $"../Player2D"
+
 const lines: Array[String] = [
-	"HEY WE ARE HERE",
-	"WANNA SPAR IN THIS ",
-	"!!! 123123 UOU KNO",
-	"STUFF IT"
+	"READY TO GET ON THE TRAIN?",
+	"LET US GO!"
 ]
 
 func _unhandled_input(event):
 	if event.is_action_pressed("interact"):
-		DialogueManager.start_dialog(Vector2(10,10), lines)
+		DialogueManager.start_dialog(Vector2(player_2d.position.x/2, player_2d.position.y), lines)
 		
