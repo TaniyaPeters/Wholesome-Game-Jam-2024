@@ -12,6 +12,7 @@ var is_dialog_active = false
 var can_advance_line = false
 
 func start_dialog(position:Vector2, lines:Array[String]):
+	print('here testing')
 	if is_dialog_active:
 		return
 		
