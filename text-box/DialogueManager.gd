@@ -1,6 +1,6 @@
 extends Node
 
-@onready var text_box_scene = preload("res://text-box/text-box-template.tscn")
+@onready var text_box_scene = preload("res://text-box/text_box.tscn")
 
 var dialog_lines: Array[String]=[]
 var current_line_index = 0
@@ -31,7 +31,6 @@ func _show_text_box():
 	can_advance_line = false
 
 func _on_text_box_finished_displaying():
-	print('here')
 	can_advance_line = true	
 
 func _unhandled_input(event):
