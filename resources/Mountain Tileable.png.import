@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7xqvx0qyj1io"
-path="res://.godot/imported/Ground Texture.png-c8462ca46a19d997b4819d8f4d09499c.ctex"
+uid="uid://bpl32gbvtgs7n"
+path="res://.godot/imported/Mountain Tileable.png-f5cbcc86c9f7a05913877eea6547e954.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://text-box/Ground Texture.png"
-dest_files=["res://.godot/imported/Ground Texture.png-c8462ca46a19d997b4819d8f4d09499c.ctex"]
+source_file="res://resources/Mountain Tileable.png"
+dest_files=["res://.godot/imported/Mountain Tileable.png-f5cbcc86c9f7a05913877eea6547e954.ctex"]
 
 [params]
 
