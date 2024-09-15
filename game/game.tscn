@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqyp4lbuxkaf7"]
 
-[ext_resource type="PackedScene" uid="uid://oha8h4k13eiw" path="res://tapestry/tapestry.tscn" id="1_v56t1"]
+[ext_resource type="PackedScene" uid="uid://foq0njdm6mnh" path="res://tapestry/tapestry.tscn" id="1_v56t1"]
 [ext_resource type="Script" path="res://player/camera.gd" id="2_e5fx7"]
 [ext_resource type="Script" path="res://player/player.gd" id="3_ha1ki"]
 
