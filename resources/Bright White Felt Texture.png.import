@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqxs1pe7bvgeb"
-path.s3tc="res://.godot/imported/White Felt Texture.png-4cecfa5e052d1ef473e1efa8a129d152.s3tc.ctex"
+uid="uid://pcyimv8thfrr"
+path.s3tc="res://.godot/imported/Bright White Felt Texture.png-23d1075240f2697fc55229bd86473719.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/White Felt Texture.png"
-dest_files=["res://.godot/imported/White Felt Texture.png-4cecfa5e052d1ef473e1efa8a129d152.s3tc.ctex"]
+source_file="res://resources/Bright White Felt Texture.png"
+dest_files=["res://.godot/imported/Bright White Felt Texture.png-23d1075240f2697fc55229bd86473719.s3tc.ctex"]
 
 [params]
 

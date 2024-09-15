@@ -8,6 +8,9 @@ const DEFAULT_GRAVITY_MULTIPLIER = 1.0
 const FALL_GRAVITY_MULTIPLIER = 1.5
 
 
+@onready var sprite := $Sprite2D
+
+
 var gravity_multiplier := 1.0
 var input_axis := 1.0
 var direction := 1.0
@@ -29,6 +32,8 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	input_axis = Input.get_axis("move_left", "move_right")
 	if input_axis:
+		if input_axis != direction:
+			sprite.flip_h = !sprite.flip_h
 		direction = input_axis
 		velocity.x = input_axis * SPEED
 	else:
