@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxyhwfh3tfb2a"]
+[gd_scene load_steps=7 format=3 uid="uid://42dteda40tcg"]
 
 [ext_resource type="Texture2D" uid="uid://bdse352eq21xt" path="res://text-box/Rounded White Felt Texture.png" id="1_6w3fy"]
 [ext_resource type="Script" path="res://text-box/margin_container.gd" id="1_rhrpo"]
@@ -53,6 +53,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0.79314, 0.0573685, 0.504535, 1)
 theme_override_fonts/normal_font = ExtResource("3_2vrng")
 theme_override_font_sizes/normal_font_size = 50
+text = "HELLO MY NAME IS ALARU"
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite" type="RichTextLabel" parent="Panel2"]
