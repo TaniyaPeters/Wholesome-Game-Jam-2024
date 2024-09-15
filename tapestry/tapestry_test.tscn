@@ -4,13 +4,8 @@
 
 [node name="CanvasTest" type="Node3D"]
 
-[node name="CameraOutside" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.668417, 0.743787, 0, -0.743787, 0.668417, 0, 2.94924, 2.57799)
-
-[node name="CameraOnTop" type="Camera3D" parent="."]
-transform = Transform3D(0.999785, 0.020733, 9.06269e-10, 0, -4.37114e-08, 1, 0.020733, -0.999785, -4.3702e-08, 0, 2.45221, -0.0489577)
-current = true
-fov = 76.2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.695085, 0.718927, 0, -0.718927, 0.695085, 0, 4.65747, 0)
