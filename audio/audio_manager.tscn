@@ -1,0 +1,18 @@
+[gd_scene load_steps=7 format=3 uid="uid://bko7qa4x2057x"]
+
+[ext_resource type="Script" path="res://audio/audio_manager.gd" id="1_hci2i"]
+[ext_resource type="AudioStream" uid="uid://dt4b035lgpcpu" path="res://audio/ambience/Developers Talking 01.wav" id="2_b15xi"]
+[ext_resource type="AudioStream" uid="uid://diqclnsvx6pe3" path="res://audio/ambience/Cats 01.wav" id="2_fmbh6"]
+[ext_resource type="AudioStream" uid="uid://ckdtod4qlxwpo" path="res://audio/ambience/Coffee Shop 01.wav" id="3_2wqaw"]
+[ext_resource type="AudioStream" uid="uid://cgjpraore4oc5" path="res://audio/ambience/Drawing 01.wav" id="5_uqpbm"]
+[ext_resource type="AudioStream" uid="uid://vfjqgtc1ujrv" path="res://audio/ambience/Guitars.wav" id="6_qqgv1"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_hci2i")
+ambience_streams = Array[AudioStream]([ExtResource("2_fmbh6"), ExtResource("3_2wqaw"), ExtResource("2_b15xi"), ExtResource("5_uqpbm"), ExtResource("6_qqgv1")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_b15xi")
+volume_db = 24.0
+autoplay = true
+bus = &"Ambience"
