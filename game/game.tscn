@@ -1,11 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqyp4lbuxkaf7"]
+[gd_scene load_steps=10 format=3 uid="uid://cqyp4lbuxkaf7"]
 
 [ext_resource type="PackedScene" uid="uid://oha8h4k13eiw" path="res://tapestry/tapestry.tscn" id="1_v56t1"]
 [ext_resource type="Script" path="res://player/camera.gd" id="2_e5fx7"]
 [ext_resource type="Script" path="res://player/player.gd" id="3_ha1ki"]
+[ext_resource type="Texture2D" uid="uid://bpbgcypeodinm" path="res://resources/wood.jpg" id="4_dh24y"]
+[ext_resource type="Texture2D" uid="uid://bsschxr4su822" path="res://resources/lap.png" id="4_qikrc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avw4x"]
+transparency = 1
+albedo_texture = ExtResource("4_qikrc")
 
 [sub_resource type="QuadMesh" id="QuadMesh_i7c55"]
-size = Vector2(5.15, 1.545)
+material = SubResource("StandardMaterial3D_avw4x")
+size = Vector2(5.15, 7.33)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6game"]
+albedo_color = Color(0.360441, 0.28759, 0.159422, 1)
+albedo_texture = ExtResource("4_dh24y")
+uv1_scale = Vector3(2, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_2vw3m"]
+material = SubResource("StandardMaterial3D_6game")
+size = Vector2(80, 40)
 
 [node name="Game" type="Node3D" groups=["Games"]]
 
@@ -39,5 +55,9 @@ script = ExtResource("3_ha1ki")
 [node name="RayCast3D" type="RayCast3D" parent="Player"]
 
 [node name="Lap" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -2.28567e-07, 1, 0, -5.22901, -4.37114e-08, 0, 0.328103, 0.400312)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.0278931, -1.09924)
 mesh = SubResource("QuadMesh_i7c55")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -4.32102, -14.728)
+mesh = SubResource("QuadMesh_2vw3m")

@@ -29,12 +29,14 @@ func toggle_view():
 	in_transition = true
 	if camera_outside.current:
 		AudioManager.fade_out_ambience()
+		AudioManager.fade_in_game()
 		transition_camera(camera_outside, camera_top, 1.0)
 		await tween.finished
 		game_2d.unpause()
 	else:
 		game_2d.pause()
 		AudioManager.fade_in_ambience()
+		AudioManager.fade_out_game()
 		transition_camera(camera_top, camera_outside, 1.0)
 		await tween.finished
 
