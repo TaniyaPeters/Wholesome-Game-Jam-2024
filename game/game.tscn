@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqyp4lbuxkaf7"]
+[gd_scene load_steps=4 format=3 uid="uid://cqyp4lbuxkaf7"]
 
 [ext_resource type="PackedScene" uid="uid://foq0njdm6mnh" path="res://tapestry/tapestry.tscn" id="1_v56t1"]
 [ext_resource type="Script" path="res://player/camera.gd" id="2_e5fx7"]
+[ext_resource type="Script" path="res://player/player.gd" id="3_ha1ki"]
 
 [node name="Game" type="Node3D" groups=["Games"]]
 
@@ -28,3 +29,6 @@ transform = Transform3D(1, 0, 0, 0, 0.695085, 0.718927, 0, -0.718927, 0.695085, 
 [node name="Tapestry" parent="." instance=ExtResource("1_v56t1")]
 
 [node name="Player" type="Node3D" parent="."]
+script = ExtResource("3_ha1ki")
+
+[node name="RayCast3D" type="RayCast3D" parent="Player"]

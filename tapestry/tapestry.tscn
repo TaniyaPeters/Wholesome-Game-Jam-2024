@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://foq0njdm6mnh"]
+[gd_scene load_steps=6 format=3 uid="uid://foq0njdm6mnh"]
 
 [ext_resource type="PackedScene" uid="uid://c7rg8m3tbmf0g" path="res://tapestry/tapestry.glb" id="1_cka8h"]
 [ext_resource type="PackedScene" uid="uid://c7t70yce8oky3" path="res://game/game_2d.tscn" id="2_dohdv"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ng08q"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_svosa"]
 viewport_path = NodePath("SubViewport")
@@ -9,13 +11,18 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j3qdf"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_svosa")
+metallic_specular = 0.09
 
 [node name="Tapestry" instance=ExtResource("1_cka8h")]
 
-[node name="Tapestry" parent="." index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.56171)
+shape = SubResource("ConcavePolygonShape3D_ng08q")
+
+[node name="Tapestry" parent="." index="1"]
 surface_material_override/1 = SubResource("StandardMaterial3D_j3qdf")
 
-[node name="SubViewport" type="SubViewport" parent="." index="1"]
+[node name="SubViewport" type="SubViewport" parent="." index="2"]
 disable_3d = true
 size = Vector2i(3072, 1080)
 render_target_update_mode = 4
