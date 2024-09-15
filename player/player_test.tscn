@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsyjngi1lj78m"]
+[gd_scene load_steps=6 format=3 uid="uid://dsyjngi1lj78m"]
 
 [ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player_2d.tscn" id="1_5p5u3"]
-[ext_resource type="Script" path="res://player/camera_2d.gd" id="1_hc15h"]
 
 [sub_resource type="Gradient" id="Gradient_1o46r"]
 colors = PackedColorArray(0.277637, 0.365693, 1, 1, 0.771964, 0.730897, 0.728309, 1)
@@ -18,10 +17,6 @@ fill_to = Vector2(0, 1)
 
 [node name="PlayerTest" type="Node2D"]
 position = Vector2(960, 540)
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("1_hc15h")
-player = NodePath("../Player")
 
 [node name="BackgroundImage" type="Sprite2D" parent="."]
 position = Vector2(8, -4)

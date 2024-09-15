@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7t70yce8oky3"]
+[gd_scene load_steps=9 format=3 uid="uid://c7t70yce8oky3"]
 
 [ext_resource type="Script" path="res://game/game_2d.gd" id="1_m42hk"]
-[ext_resource type="Script" path="res://player/camera_2d.gd" id="2_8sk3p"]
 [ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player_2d.tscn" id="3_we32d"]
+[ext_resource type="Texture2D" uid="uid://ctff6mu3gopx6" path="res://icon_dark.svg" id="4_hrqgr"]
+[ext_resource type="Texture2D" uid="uid://ccgmsu8n2gy25" path="res://icon.svg" id="4_raakw"]
 
 [sub_resource type="Gradient" id="Gradient_1o46r"]
 colors = PackedColorArray(0.277637, 0.365693, 1, 1, 0.771964, 0.730897, 0.728309, 1)
@@ -20,10 +21,6 @@ fill_to = Vector2(0, 1)
 [node name="Game2D" type="Node2D"]
 position = Vector2(960, 540)
 script = ExtResource("1_m42hk")
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("2_8sk3p")
-player = NodePath("../Player")
 
 [node name="BackgroundImage" type="Sprite2D" parent="."]
 position = Vector2(8, -4)
@@ -82,7 +79,26 @@ modulate = Color(0.291204, 0.392649, 0.189903, 1)
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_v0i76")
 
-[node name="Player" parent="." instance=ExtResource("3_we32d")]
+[node name="Player2D" parent="." instance=ExtResource("3_we32d")]
 scale = Vector2(2.75577, 2.75577)
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 367.0
+offset_top = -323.0
+offset_right = 1248.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 216
+text = "HELLO"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 74.0
+offset_top = -288.0
+offset_right = 202.0
+offset_bottom = -160.0
+texture_normal = ExtResource("4_raakw")
+texture_pressed = ExtResource("4_hrqgr")
+texture_hover = ExtResource("4_hrqgr")
