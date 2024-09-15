@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://j5pfhuqt1iol"]
 
-[ext_resource type="PackedScene" uid="uid://foq0njdm6mnh" path="res://tapestry/tapestry.tscn" id="1_iwc3v"]
+[ext_resource type="PackedScene" uid="uid://oha8h4k13eiw" path="res://tapestry/tapestry.tscn" id="1_iwc3v"]
 
 [node name="CanvasTest" type="Node3D"]
 
