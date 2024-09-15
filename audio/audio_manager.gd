@@ -11,6 +11,8 @@ const AMBIENCE_VOLUME_FADEOUT := -36.0
 
 @onready var ambience_bus = AudioServer.get_bus_index("Ambience")
 @onready var ambience_bus_target_volume := AudioServer.get_bus_volume_db(ambience_bus)
+@onready var train_chugging_1: AudioStreamPlayer = $TrainChugging1
+@onready var train_chugging_2: AudioStreamPlayer = $TrainChugging2
 
 
 func _ready() -> void:
@@ -45,3 +47,19 @@ func fade_in_ambience():
 
 func fade_out_ambience():
 	fade_bus_volume_to(ambience_bus, AMBIENCE_VOLUME_FADEOUT)
+
+
+func start_train_sound():
+	train_chugging_1.play()
+	train_chugging_2.play()
+
+func stop_train_sound():
+	train_chugging_1.stop()
+	train_chugging_2.stop()
+
+func fade_in_game():
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Game"), AMBIENCE_VOLUME_FADEIN)
+
+
+func fade_out_game():
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Game"), AMBIENCE_VOLUME_FADEOUT)

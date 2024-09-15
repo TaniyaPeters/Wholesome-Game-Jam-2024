@@ -135,6 +135,7 @@ game_2d = NodePath("../Game2D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.999885, 0.0151838, 6.63704e-10, 0, -4.37114e-08, 1, 0.0151838, -0.999885, -4.37064e-08, 0, 0.468141, -0.0468828)
+visible = false
 mesh = SubResource("QuadMesh_8ivy1")
 surface_material_override/0 = SubResource("StandardMaterial3D_u065p")
 
