@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dq8nt800hw2hv"]
+[gd_scene load_steps=8 format=3 uid="uid://dq8nt800hw2hv"]
 
 [ext_resource type="Script" path="res://text-box/test_lines.gd" id="1_ibf7s"]
+[ext_resource type="PackedScene" uid="uid://cxyhwfh3tfb2a" path="res://text-box/text_box.tscn" id="2_to8sr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clrlq"]
 radius = 30.0
@@ -17,8 +18,6 @@ height = 100.0
 [node name="Test-text" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-364, 96)
@@ -41,3 +40,12 @@ position = Vector2(-4.5, 254.375)
 scale = Vector2(1143, 137.25)
 mesh = SubResource("BoxMesh_ss2ns")
 texture = SubResource("Texture2DRD_e83li")
+
+[node name="TextBox" parent="." instance=ExtResource("2_to8sr")]
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = -706.0
+offset_top = -600.0
+offset_right = 253.0
+offset_bottom = -49.0
+grow_horizontal = 1
