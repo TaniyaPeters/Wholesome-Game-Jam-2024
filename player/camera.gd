@@ -30,14 +30,13 @@ func toggle_view():
 	if camera_outside.current:
 		transition_camera(camera_outside, camera_top, 1.0)
 		await tween.finished
-		game_2d.process_mode = Node.PROCESS_MODE_INHERIT
+		game_2d.unpause()
 	else:
-		game_2d.process_mode = Node.PROCESS_MODE_DISABLED
+		game_2d.pause()
 		transition_camera(camera_top, camera_outside, 1.0)
 		await tween.finished
 
 	in_transition = false
-	print(game_2d)
 
 
 func transition_camera(from_camera: Camera3D, to_camera: Camera3D, duration: float):
