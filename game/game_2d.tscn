@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c7t70yce8oky3"]
+[gd_scene load_steps=36 format=3 uid="uid://c7t70yce8oky3"]
 
 [ext_resource type="Script" path="res://game/game_2d.gd" id="1_m42hk"]
 [ext_resource type="Texture2D" uid="uid://bqxs1pe7bvgeb" path="res://resources/White Felt Texture.png" id="2_dvy4j"]
@@ -20,6 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://b7xqvx0qyj1io" path="res://resources/Ground Texture.png" id="14_w1svh"]
 [ext_resource type="Texture2D" uid="uid://bljvyjqkt26ba" path="res://resources/trunk 2.png" id="15_ugld0"]
 [ext_resource type="Texture2D" uid="uid://0jbf5eaggog7" path="res://resources/temple.png" id="19_a7ena"]
+[ext_resource type="Script" path="res://game/temple.gd" id="20_qjfdw"]
+[ext_resource type="Texture2D" uid="uid://bdse352eq21xt" path="res://text-box/Rounded White Felt Texture.png" id="21_ctkhf"]
+[ext_resource type="FontFile" uid="uid://dippmgo683fq8" path="res://text-box/Stitched Letters.png" id="22_13816"]
+[ext_resource type="Script" path="res://game/panel.gd" id="23_t0ie6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8mpeu"]
 normal = Vector2(1, 0)
@@ -43,10 +47,18 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byvtf"]
-size = Vector2(449.746, 52.5657)
+size = Vector2(449.746, 62.905)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2pyo4"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cp80r"]
+texture = ExtResource("21_ctkhf")
+modulate_color = Color(0.450422, 0.888372, 0.999999, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dmukh"]
+texture = ExtResource("21_ctkhf")
+modulate_color = Color(0.556094, 0.761464, 0.911976, 1)
 
 [node name="Game2D" type="Node2D"]
 position = Vector2(960, 540)
@@ -440,14 +452,17 @@ disabled = true
 
 [node name="Temple" type="StaticBody2D" parent="."]
 position = Vector2(12822, 273)
+script = ExtResource("20_qjfdw")
 
 [node name="Temple" type="Sprite2D" parent="Temple"]
 position = Vector2(258, -252)
 scale = Vector2(1.52649, 1.52649)
 texture = ExtResource("19_a7ena")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Temple"]
-position = Vector2(266.433, 59.5652)
+[node name="Area2D" type="Area2D" parent="Temple"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temple/Area2D"]
+position = Vector2(266.275, 54.3979)
 rotation = -0.0304036
 shape = SubResource("RectangleShape2D_byvtf")
 
@@ -586,4 +601,55 @@ texture = ExtResource("14_w1svh")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds3/Ground4"]
 polygon = PackedVector2Array(-1608, -148, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1608, -152, 1606, 248, -1606, 252)
 
+[node name="Panel" type="Panel" parent="."]
+offset_left = 215.0
+offset_top = 19.0
+offset_right = 485.0
+offset_bottom = 129.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cp80r")
+metadata/_edit_group_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 23.0
+offset_right = -29.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.373104, 0.479838, 1)
+theme_override_fonts/normal_font = ExtResource("22_13816")
+theme_override_font_sizes/normal_font_size = 20
+text = "PRESS TAB TO TOGGLE REAL WORLD"
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+offset_left = 13342.0
+offset_top = 167.0
+offset_right = 13512.0
+offset_bottom = 243.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_dmukh")
+script = ExtResource("23_t0ie6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1.92523e-07, 0.300949, 0.769982, 1)
+theme_override_fonts/normal_font = ExtResource("22_13816")
+text = "PRESS E TO INTERACT"
+
 [connection signal="body_entered" from="Train/TrainBoardingArea" to="Train" method="_on_train_boarding_area_body_entered"]
+[connection signal="body_entered" from="Temple/Area2D" to="Temple" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Temple/Area2D" to="Panel2" method="_on_area_2d_body_entered"]

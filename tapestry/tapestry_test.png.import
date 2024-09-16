@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://j4c7etoawyep"
 path.s3tc="res://.godot/imported/tapestry_test.png-0cb87709345dec276420f28500b46cd4.s3tc.ctex"
+path.etc2="res://.godot/imported/tapestry_test.png-0cb87709345dec276420f28500b46cd4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://tapestry/tapestry_test.png"
-dest_files=["res://.godot/imported/tapestry_test.png-0cb87709345dec276420f28500b46cd4.s3tc.ctex"]
+dest_files=["res://.godot/imported/tapestry_test.png-0cb87709345dec276420f28500b46cd4.s3tc.ctex", "res://.godot/imported/tapestry_test.png-0cb87709345dec276420f28500b46cd4.etc2.ctex"]
 
 [params]
 

@@ -19,8 +19,8 @@ modulate_color = Color(1, 0.853917, 0.63478, 1)
 anchors_preset = -1
 anchor_left = 0.00364583
 anchor_top = 0.000925926
-anchor_right = 0.215867
-anchor_bottom = 0.230556
+anchor_right = 0.190346
+anchor_bottom = 0.336111
 offset_right = 11.5349
 grow_horizontal = 2
 grow_vertical = 2
@@ -37,16 +37,16 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_b083p")
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.200477
-anchor_top = 0.233871
-anchor_right = 0.768496
-anchor_bottom = 0.754032
+anchor_left = 0.121622
+anchor_top = 0.0968343
+anchor_right = 0.889189
+anchor_bottom = 0.873371
 offset_right = 6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.79314, 0.0573685, 0.504535, 1)
 theme_override_fonts/normal_font = ExtResource("3_2vrng")
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 50
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
