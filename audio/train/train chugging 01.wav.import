@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://baqx85al56sed"
+path="res://.godot/imported/train chugging 01.wav-b1b59cc4f679a2782b8c30abaef3eb31.sample"
+
+[deps]
+
+source_file="res://audio/train/train chugging 01.wav"
+dest_files=["res://.godot/imported/train chugging 01.wav-b1b59cc4f679a2782b8c30abaef3eb31.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

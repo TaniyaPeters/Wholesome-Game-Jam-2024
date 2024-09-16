@@ -1,6 +1,6 @@
 extends MarginContainer
 
-@onready var label = $Panel2/RichTextLabel
+@onready var label = $Panel/RichTextLabel
 @onready var timer = $Timer
 
 const MAX_WIDTH =256
@@ -21,7 +21,7 @@ func display_text(text_to_display:String):
 	_display_letter()
 	
 func _display_letter():
-	label.text = text + text[letter_index]
+	label.text = label.text + text[letter_index]
 	letter_index += 1
 	if letter_index >= text.length():
 		finished_displaying.emit()

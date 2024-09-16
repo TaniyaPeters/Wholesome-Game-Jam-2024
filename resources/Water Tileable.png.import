@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmf8rps4s1cuv"
-path="res://.godot/imported/Forest Tileable.png-d7836c2bffabd9744887253ff237922c.ctex"
+uid="uid://cvxn33wbty1d7"
+path="res://.godot/imported/Water Tileable.png-a424c08eb076dce29dac409b628ceb2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://text-box/Forest Tileable.png"
-dest_files=["res://.godot/imported/Forest Tileable.png-d7836c2bffabd9744887253ff237922c.ctex"]
+source_file="res://resources/Water Tileable.png"
+dest_files=["res://.godot/imported/Water Tileable.png-a424c08eb076dce29dac409b628ceb2a.ctex"]
 
 [params]
 
