@@ -1,0 +1,655 @@
+[gd_scene load_steps=36 format=3 uid="uid://c7t70yce8oky3"]
+
+[ext_resource type="Script" path="res://game/game_2d.gd" id="1_m42hk"]
+[ext_resource type="Texture2D" uid="uid://bqxs1pe7bvgeb" path="res://resources/White Felt Texture.png" id="2_dvy4j"]
+[ext_resource type="Texture2D" uid="uid://1f4lj5ymet5a" path="res://resources/Sun.png" id="3_f4y2s"]
+[ext_resource type="Texture2D" uid="uid://ckpt3x4dh8wuv" path="res://resources/Cloud 1.png" id="3_w3lgj"]
+[ext_resource type="PackedScene" uid="uid://dtd8f15s62vwb" path="res://player/player_2d.tscn" id="3_we32d"]
+[ext_resource type="Texture2D" uid="uid://10cixwpy1my4" path="res://resources/Cloud 2.png" id="4_tywjx"]
+[ext_resource type="Texture2D" uid="uid://cnvd4rkg4wj2t" path="res://resources/Cloud 3.png" id="5_6jn3d"]
+[ext_resource type="Texture2D" uid="uid://bpl32gbvtgs7n" path="res://resources/Mountain Tileable.png" id="7_b7h2k"]
+[ext_resource type="Texture2D" uid="uid://bmf8rps4s1cuv" path="res://resources/Forest Tileable.png" id="7_udam4"]
+[ext_resource type="Texture2D" uid="uid://d1c2eqs6so7ea" path="res://resources/Orange House.png" id="7_xl8ht"]
+[ext_resource type="Texture2D" uid="uid://dripfsiaehyku" path="res://resources/Blue House.png" id="8_2oslg"]
+[ext_resource type="Texture2D" uid="uid://dsdvhd1j73ioq" path="res://resources/Green House.png" id="8_qp7mi"]
+[ext_resource type="Texture2D" uid="uid://cdwjwh7po4s6" path="res://resources/Yellow House.png" id="9_5khwf"]
+[ext_resource type="Texture2D" uid="uid://d355iidifisx3" path="res://resources/Train Front.png" id="12_3n300"]
+[ext_resource type="Script" path="res://train/train.gd" id="12_iaebw"]
+[ext_resource type="Texture2D" uid="uid://ckstfdrn0h5a4" path="res://resources/Train Cart.png" id="12_sqcxx"]
+[ext_resource type="Texture2D" uid="uid://bmt7a4gl73hi5" path="res://resources/tree trunk.png" id="14_vd81r"]
+[ext_resource type="Texture2D" uid="uid://b7xqvx0qyj1io" path="res://resources/Ground Texture.png" id="14_w1svh"]
+[ext_resource type="Texture2D" uid="uid://bljvyjqkt26ba" path="res://resources/trunk 2.png" id="15_ugld0"]
+[ext_resource type="Texture2D" uid="uid://0jbf5eaggog7" path="res://resources/temple.png" id="19_a7ena"]
+[ext_resource type="Script" path="res://game/temple.gd" id="20_qjfdw"]
+[ext_resource type="Texture2D" uid="uid://bdse352eq21xt" path="res://text-box/Rounded White Felt Texture.png" id="21_ctkhf"]
+[ext_resource type="FontFile" uid="uid://dippmgo683fq8" path="res://text-box/Stitched Letters.png" id="22_13816"]
+[ext_resource type="Script" path="res://game/panel.gd" id="23_t0ie6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8mpeu"]
+normal = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n7i5"]
+size = Vector2(208.369, 95.4061)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aijsc"]
+size = Vector2(1120, 121)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6kx0"]
+radius = 211.009
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e30ph"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xe8df"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qyoi1"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byvtf"]
+size = Vector2(449.746, 62.905)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2pyo4"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cp80r"]
+texture = ExtResource("21_ctkhf")
+modulate_color = Color(0.450422, 0.888372, 0.999999, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dmukh"]
+texture = ExtResource("21_ctkhf")
+modulate_color = Color(0.556094, 0.761464, 0.911976, 1)
+
+[node name="Game2D" type="Node2D"]
+position = Vector2(960, 540)
+script = ExtResource("1_m42hk")
+
+[node name="LeftLimit" type="StaticBody2D" parent="."]
+z_index = -10
+position = Vector2(-1048, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLimit"]
+shape = SubResource("WorldBoundaryShape2D_8mpeu")
+
+[node name="Sky" type="Parallax2D" parent="."]
+z_index = -10
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1049, 500)
+repeat_times = 3
+
+[node name="BackgroundImage" type="Sprite2D" parent="Sky"]
+modulate = Color(0.3854, 0.63497, 0.94, 1)
+texture = ExtResource("2_dvy4j")
+
+[node name="Sun" type="Parallax2D" parent="."]
+z_index = -10
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(3000, 0)
+repeat_times = 3
+
+[node name="Sun" type="Sprite2D" parent="Sun"]
+position = Vector2(564, -436)
+scale = Vector2(0.180284, 0.180284)
+texture = ExtResource("3_f4y2s")
+
+[node name="Clouds" type="Parallax2D" parent="."]
+z_index = -10
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(3000, 0)
+autoscroll = Vector2(-30, 0)
+repeat_times = 3
+
+[node name="Cloud1" type="Sprite2D" parent="Clouds"]
+position = Vector2(429.868, -369.5)
+scale = Vector2(0.180284, 0.180284)
+texture = ExtResource("3_w3lgj")
+
+[node name="Cloud6" type="Sprite2D" parent="Clouds"]
+position = Vector2(863, -52)
+scale = Vector2(0.112345, 0.112345)
+texture = ExtResource("3_w3lgj")
+
+[node name="Cloud5" type="Sprite2D" parent="Clouds"]
+position = Vector2(2315, -441)
+scale = Vector2(0.177457, 0.180284)
+texture = ExtResource("3_w3lgj")
+
+[node name="Cloud2" type="Sprite2D" parent="Clouds"]
+position = Vector2(965, -516)
+scale = Vector2(0.210692, 0.210692)
+texture = ExtResource("4_tywjx")
+
+[node name="Cloud7" type="Sprite2D" parent="Clouds"]
+position = Vector2(2909, -420)
+scale = Vector2(0.15566, 0.15566)
+texture = ExtResource("4_tywjx")
+
+[node name="Cloud4" type="Sprite2D" parent="Clouds"]
+position = Vector2(1918, -149)
+scale = Vector2(0.222905, 0.27044)
+texture = ExtResource("4_tywjx")
+
+[node name="Cloud3" type="Sprite2D" parent="Clouds"]
+position = Vector2(1417.17, -301)
+scale = Vector2(0.133978, 0.133978)
+texture = ExtResource("5_6jn3d")
+
+[node name="Cloud8" type="Sprite2D" parent="Clouds"]
+position = Vector2(2725, -91)
+scale = Vector2(0.133978, 0.133978)
+texture = ExtResource("5_6jn3d")
+
+[node name="Mountain" type="Parallax2D" parent="."]
+z_index = -10
+scale = Vector2(0.63, 0.63)
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-41, -15)
+repeat_size = Vector2(3200, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Mountain"]
+texture = ExtResource("7_b7h2k")
+region_rect = Rect2(2.35156, 0, 2525.65, 1017)
+
+[node name="Forest" type="Parallax2D" parent="."]
+z_index = -10
+scale = Vector2(0.63, 0.63)
+scroll_scale = Vector2(0.3, 0.5)
+scroll_offset = Vector2(-26, 102)
+repeat_size = Vector2(2528, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Forest"]
+texture = ExtResource("7_udam4")
+region_rect = Rect2(2.35156, 0, 2525.65, 1017)
+
+[node name="BgHouses" type="Parallax2D" parent="."]
+z_index = -10
+scroll_scale = Vector2(0.8, 1)
+scroll_offset = Vector2(239, 39)
+
+[node name="Pavement2" type="Sprite2D" parent="BgHouses"]
+modulate = Color(0.402799, 0.514799, 0.624438, 1)
+position = Vector2(-991, 480)
+texture = ExtResource("2_dvy4j")
+
+[node name="Pavement3" type="Sprite2D" parent="BgHouses"]
+modulate = Color(0.402799, 0.514799, 0.624438, 1)
+position = Vector2(58, 480)
+texture = ExtResource("2_dvy4j")
+
+[node name="Pavement4" type="Sprite2D" parent="BgHouses"]
+modulate = Color(0.402799, 0.514799, 0.624438, 1)
+position = Vector2(-2040, 480)
+texture = ExtResource("2_dvy4j")
+
+[node name="GreenHouse2" type="Node2D" parent="BgHouses"]
+position = Vector2(-203, 85)
+scale = Vector2(0.691056, 0.691056)
+metadata/_edit_group_ = true
+
+[node name="Door" type="Sprite2D" parent="BgHouses/GreenHouse2"]
+modulate = Color(0.44595, 0.249072, 0.211227, 1)
+position = Vector2(52.0942, 157.73)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(315.5, 180, 140, 260)
+
+[node name="Windows" type="Sprite2D" parent="BgHouses/GreenHouse2"]
+modulate = Color(0.207843, 0.180392, 0.0235294, 1)
+position = Vector2(10.1294, 50.6471)
+scale = Vector2(0.749841, 0.749841)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(204.951, 24.529, 300, 200)
+
+[node name="House" type="Sprite2D" parent="BgHouses/GreenHouse2"]
+rotation = -1.5708
+scale = Vector2(0.218385, 0.218385)
+texture = ExtResource("8_qp7mi")
+
+[node name="BlueHouse" type="Node2D" parent="BgHouses"]
+position = Vector2(-1091, 84)
+scale = Vector2(0.444214, 0.444214)
+metadata/_edit_group_ = true
+
+[node name="Windows" type="Sprite2D" parent="BgHouses/BlueHouse"]
+modulate = Color(0.207843, 0.180392, 0.0235294, 1)
+position = Vector2(-117.212, 153.388)
+scale = Vector2(0.749841, 0.749841)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(204.951, 24.5289, 371.085, 452.553)
+
+[node name="House" type="Sprite2D" parent="BgHouses/BlueHouse"]
+modulate = Color(0.974289, 0.828545, 0.832839, 1)
+position = Vector2(-98.4001, 8.68233)
+scale = Vector2(0.267767, 0.267767)
+texture = ExtResource("8_2oslg")
+
+[node name="OrangeHouse" type="Node2D" parent="BgHouses"]
+position = Vector2(-334, 6)
+scale = Vector2(0.691056, 0.691056)
+metadata/_edit_group_ = true
+
+[node name="WindowsUpper" type="Sprite2D" parent="BgHouses/OrangeHouse"]
+modulate = Color(0.207843, 0.180392, 0.0235294, 1)
+position = Vector2(-119, -39)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(204.951, 55.129, 640, 240)
+
+[node name="WindowsLower" type="Sprite2D" parent="BgHouses/OrangeHouse"]
+modulate = Color(0.227938, 0.18809, 0.0349951, 1)
+position = Vector2(-127, 102)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(204.951, 240, 640, 240)
+
+[node name="WindowBottom" type="Sprite2D" parent="BgHouses/OrangeHouse"]
+modulate = Color(0.20681, 0.181835, 0.0222264, 1)
+position = Vector2(-26, 254)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(704.877, 98.6124, 206.145, 165.883)
+
+[node name="Door" type="Sprite2D" parent="BgHouses/OrangeHouse"]
+modulate = Color(0.44595, 0.249072, 0.211227, 1)
+position = Vector2(-221, 262)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(315.5, 180, 140, 260)
+
+[node name="House" type="Sprite2D" parent="BgHouses/OrangeHouse"]
+position = Vector2(-124, -60.4139)
+rotation = -1.5708
+scale = Vector2(0.406743, 0.406743)
+texture = ExtResource("7_xl8ht")
+
+[node name="YellowHouse" type="Node2D" parent="BgHouses"]
+position = Vector2(-475, -116)
+scale = Vector2(0.691056, 0.691056)
+metadata/_edit_group_ = true
+
+[node name="Windows" type="Sprite2D" parent="BgHouses/YellowHouse"]
+modulate = Color(0.207843, 0.180392, 0.0235294, 1)
+position = Vector2(-256.13, 303.883)
+scale = Vector2(0.749841, 0.749841)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(204.951, 24.5289, 371.085, 452.553)
+
+[node name="House" type="Sprite2D" parent="BgHouses/YellowHouse"]
+position = Vector2(-257.358, 210.822)
+scale = Vector2(0.218385, 0.218385)
+texture = ExtResource("9_5khwf")
+
+[node name="GreenHouse" type="Node2D" parent="BgHouses"]
+position = Vector2(-972, 61)
+scale = Vector2(0.798324, 0.798324)
+metadata/_edit_group_ = true
+
+[node name="Door" type="Sprite2D" parent="BgHouses/GreenHouse"]
+modulate = Color(0.44595, 0.249072, 0.211227, 1)
+position = Vector2(-53.8628, 161.588)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(315.5, 180, 140, 260)
+
+[node name="Windows" type="Sprite2D" parent="BgHouses/GreenHouse"]
+modulate = Color(0.207843, 0.180392, 0.0235294, 1)
+position = Vector2(-7.51573, 46.3471)
+scale = Vector2(0.749841, 0.749841)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(204.951, 24.529, 300, 200)
+
+[node name="House" type="Sprite2D" parent="BgHouses/GreenHouse"]
+modulate = Color(0.562233, 0.76324, 0.857396, 1)
+rotation = -1.5708
+scale = Vector2(0.218385, 0.218385)
+texture = ExtResource("8_qp7mi")
+flip_v = true
+
+[node name="GroundLayer" type="Node2D" parent="."]
+
+[node name="Ground2" type="StaticBody2D" parent="GroundLayer"]
+position = Vector2(499, 294)
+rotation = 2.54563
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLayer/Ground2"]
+position = Vector2(-4.02325, -17.2283)
+shape = SubResource("RectangleShape2D_4n7i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundLayer/Ground2"]
+position = Vector2(9.36199, -26.2746)
+rotation = 1.57603
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("14_vd81r")
+
+[node name="Ground3" type="StaticBody2D" parent="GroundLayer"]
+position = Vector2(1167, 273)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLayer/Ground3"]
+position = Vector2(-27, -0.5)
+shape = SubResource("RectangleShape2D_aijsc")
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundLayer/Ground3"]
+position = Vector2(-28, 55)
+rotation = 1.5708
+scale = Vector2(0.405, 0.405)
+texture = ExtResource("15_ugld0")
+
+[node name="Foreground" type="Node2D" parent="."]
+
+[node name="OrangeHouse" type="Node2D" parent="Foreground"]
+visible = false
+position = Vector2(-7, -4)
+
+[node name="WindowsUpper" type="Sprite2D" parent="Foreground/OrangeHouse"]
+modulate = Color(0.207843, 0.180392, 0.0235294, 1)
+position = Vector2(-119, -39)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(204.951, 55.129, 640, 240)
+
+[node name="WindowsLower" type="Sprite2D" parent="Foreground/OrangeHouse"]
+modulate = Color(0.227938, 0.18809, 0.0349951, 1)
+position = Vector2(-127, 102)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(204.951, 240, 640, 240)
+
+[node name="WindowBottom" type="Sprite2D" parent="Foreground/OrangeHouse"]
+modulate = Color(0.20681, 0.181835, 0.0222264, 1)
+position = Vector2(-26, 254)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(704.877, 98.6124, 206.145, 165.883)
+
+[node name="Door" type="Sprite2D" parent="Foreground/OrangeHouse"]
+modulate = Color(0.44595, 0.249072, 0.211227, 1)
+position = Vector2(-221, 262)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("2_dvy4j")
+region_enabled = true
+region_rect = Rect2(315.5, 180, 140, 260)
+
+[node name="House" type="Sprite2D" parent="Foreground/OrangeHouse"]
+position = Vector2(-124, -60.4139)
+rotation = -1.5708
+scale = Vector2(0.406743, 0.406743)
+texture = ExtResource("7_xl8ht")
+
+[node name="Train" type="Node2D" parent="."]
+script = ExtResource("12_iaebw")
+
+[node name="TrainBoardingArea" type="Area2D" parent="Train"]
+position = Vector2(1439, 183)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Train/TrainBoardingArea"]
+shape = SubResource("CircleShape2D_l6kx0")
+
+[node name="PlayerSeat" type="Node2D" parent="Train"]
+position = Vector2(1449, 153)
+
+[node name="PlayerJumpPoint" type="Node2D" parent="Train"]
+position = Vector2(1449, -85)
+
+[node name="TrainBack" type="Sprite2D" parent="Train"]
+z_index = -1
+position = Vector2(1453, 205)
+scale = Vector2(0.12105, 0.12105)
+texture = ExtResource("12_sqcxx")
+
+[node name="TrainFront" type="Sprite2D" parent="Train"]
+z_index = -1
+position = Vector2(1761, 191)
+scale = Vector2(0.148357, 0.148357)
+texture = ExtResource("12_3n300")
+
+[node name="TrainDestination" type="Node2D" parent="Train"]
+z_index = -1
+position = Vector2(10610, 191)
+scale = Vector2(0.148357, 0.148357)
+
+[node name="DropoffJumpPoint" type="Node2D" parent="Train"]
+z_index = -1
+position = Vector2(10622, -88)
+
+[node name="DropoffPoint" type="Node2D" parent="Train"]
+z_index = -1
+position = Vector2(10792, 227)
+
+[node name="TrainLimits" type="StaticBody2D" parent="Train"]
+z_index = -10
+position = Vector2(1762, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Train/TrainLimits"]
+shape = SubResource("WorldBoundaryShape2D_e30ph")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Train/TrainLimits"]
+position = Vector2(8567, 0)
+shape = SubResource("WorldBoundaryShape2D_xe8df")
+disabled = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Train/TrainLimits"]
+position = Vector2(16062, 25)
+shape = SubResource("WorldBoundaryShape2D_qyoi1")
+disabled = true
+
+[node name="Temple" type="StaticBody2D" parent="."]
+position = Vector2(12822, 273)
+script = ExtResource("20_qjfdw")
+
+[node name="Temple" type="Sprite2D" parent="Temple"]
+position = Vector2(258, -252)
+scale = Vector2(1.52649, 1.52649)
+texture = ExtResource("19_a7ena")
+
+[node name="Area2D" type="Area2D" parent="Temple"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temple/Area2D"]
+position = Vector2(266.275, 54.3979)
+rotation = -0.0304036
+shape = SubResource("RectangleShape2D_byvtf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Temple"]
+position = Vector2(492, -34)
+shape = SubResource("WorldBoundaryShape2D_2pyo4")
+
+[node name="Player2D" parent="." instance=ExtResource("3_we32d")]
+scale = Vector2(2.75577, 2.75577)
+
+[node name="Grounds" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="Grounds"]
+position = Vector2(-647, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds/Ground"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds/Ground"]
+polygon = PackedVector2Array(-1604, -142, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1604, -148, 1606, 248, -1606, 252)
+
+[node name="Ground2" type="StaticBody2D" parent="Grounds"]
+position = Vector2(959, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds/Ground2"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds/Ground2"]
+polygon = PackedVector2Array(-1608, -148, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1608, -152, 1606, 248, -1606, 252)
+
+[node name="Ground3" type="StaticBody2D" parent="Grounds"]
+position = Vector2(2565, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds/Ground3"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds/Ground3"]
+polygon = PackedVector2Array(-1604, -152, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1604, -148, 1606, 248, -1606, 252)
+
+[node name="Ground4" type="StaticBody2D" parent="Grounds"]
+position = Vector2(4171, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds/Ground4"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds/Ground4"]
+polygon = PackedVector2Array(-1608, -148, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1608, -152, 1606, 248, -1606, 252)
+
+[node name="Grounds2" type="Node2D" parent="."]
+position = Vector2(6424, 0)
+
+[node name="Ground" type="StaticBody2D" parent="Grounds2"]
+position = Vector2(-647, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds2/Ground"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds2/Ground"]
+polygon = PackedVector2Array(-1604, -142, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1604, -148, 1606, 248, -1606, 252)
+
+[node name="Ground2" type="StaticBody2D" parent="Grounds2"]
+position = Vector2(959, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds2/Ground2"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds2/Ground2"]
+polygon = PackedVector2Array(-1608, -148, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1608, -152, 1606, 248, -1606, 252)
+
+[node name="Ground3" type="StaticBody2D" parent="Grounds2"]
+position = Vector2(2565, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds2/Ground3"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds2/Ground3"]
+polygon = PackedVector2Array(-1604, -152, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1604, -148, 1606, 248, -1606, 252)
+
+[node name="Ground4" type="StaticBody2D" parent="Grounds2"]
+position = Vector2(4171, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds2/Ground4"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds2/Ground4"]
+polygon = PackedVector2Array(-1608, -148, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1608, -152, 1606, 248, -1606, 252)
+
+[node name="Grounds3" type="Node2D" parent="."]
+position = Vector2(12848, 0)
+
+[node name="Ground" type="StaticBody2D" parent="Grounds3"]
+position = Vector2(-647, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds3/Ground"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds3/Ground"]
+polygon = PackedVector2Array(-1604, -142, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1604, -148, 1606, 248, -1606, 252)
+
+[node name="Ground2" type="StaticBody2D" parent="Grounds3"]
+position = Vector2(959, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds3/Ground2"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds3/Ground2"]
+polygon = PackedVector2Array(-1608, -148, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1608, -152, 1606, 248, -1606, 252)
+
+[node name="Ground3" type="StaticBody2D" parent="Grounds3"]
+position = Vector2(2565, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds3/Ground3"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds3/Ground3"]
+polygon = PackedVector2Array(-1604, -152, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1604, -148, 1606, 248, -1606, 252)
+
+[node name="Ground4" type="StaticBody2D" parent="Grounds3"]
+position = Vector2(4171, 411)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounds3/Ground4"]
+texture = ExtResource("14_w1svh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds3/Ground4"]
+polygon = PackedVector2Array(-1608, -148, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1608, -152, 1606, 248, -1606, 252)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 215.0
+offset_top = 19.0
+offset_right = 485.0
+offset_bottom = 129.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cp80r")
+metadata/_edit_group_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 23.0
+offset_right = -29.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.373104, 0.479838, 1)
+theme_override_fonts/normal_font = ExtResource("22_13816")
+theme_override_font_sizes/normal_font_size = 20
+text = "PRESS TAB TO TOGGLE REAL WORLD"
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+offset_left = 13342.0
+offset_top = 167.0
+offset_right = 13512.0
+offset_bottom = 243.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_dmukh")
+script = ExtResource("23_t0ie6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1.92523e-07, 0.300949, 0.769982, 1)
+theme_override_fonts/normal_font = ExtResource("22_13816")
+text = "PRESS E TO INTERACT"
+
+[connection signal="body_entered" from="Train/TrainBoardingArea" to="Train" method="_on_train_boarding_area_body_entered"]
+[connection signal="body_entered" from="Temple/Area2D" to="Temple" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Temple/Area2D" to="Panel2" method="_on_area_2d_body_entered"]

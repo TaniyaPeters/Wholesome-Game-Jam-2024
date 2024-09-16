@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://j5pfhuqt1iol"]
+
+[ext_resource type="PackedScene" uid="uid://oha8h4k13eiw" path="res://tapestry/tapestry.tscn" id="1_iwc3v"]
+
+[node name="CanvasTest" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.668417, 0.743787, 0, -0.743787, 0.668417, 0, 2.94924, 2.57799)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.695085, 0.718927, 0, -0.718927, 0.695085, 0, 4.65747, 0)
+
+[node name="Tapestry" parent="." instance=ExtResource("1_iwc3v")]
