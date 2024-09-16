@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsschxr4su822"
 path.s3tc="res://.godot/imported/lap.png-aceaaa9db0be38be0fefe10c0e515394.s3tc.ctex"
-path.etc2="res://.godot/imported/lap.png-aceaaa9db0be38be0fefe10c0e515394.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://resources/lap.png"
-dest_files=["res://.godot/imported/lap.png-aceaaa9db0be38be0fefe10c0e515394.s3tc.ctex", "res://.godot/imported/lap.png-aceaaa9db0be38be0fefe10c0e515394.etc2.ctex"]
+dest_files=["res://.godot/imported/lap.png-aceaaa9db0be38be0fefe10c0e515394.s3tc.ctex"]
 
 [params]
 
