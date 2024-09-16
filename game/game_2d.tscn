@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c7t70yce8oky3"]
+[gd_scene load_steps=38 format=4 uid="uid://c7t70yce8oky3"]
 
 [ext_resource type="Script" path="res://game/game_2d.gd" id="1_m42hk"]
 [ext_resource type="Texture2D" uid="uid://bqxs1pe7bvgeb" path="res://resources/White Felt Texture.png" id="2_dvy4j"]
@@ -20,6 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://b7xqvx0qyj1io" path="res://resources/Ground Texture.png" id="14_w1svh"]
 [ext_resource type="Texture2D" uid="uid://bljvyjqkt26ba" path="res://resources/trunk 2.png" id="15_ugld0"]
 [ext_resource type="Texture2D" uid="uid://0jbf5eaggog7" path="res://resources/temple.png" id="19_a7ena"]
+[ext_resource type="Script" path="res://game/temple.gd" id="20_qjfdw"]
+[ext_resource type="Script" path="res://game/panel.gd" id="21_igg5i"]
+[ext_resource type="Texture2D" uid="uid://bdse352eq21xt" path="res://text-box/Rounded White Felt Texture.png" id="22_eltun"]
+[ext_resource type="FontFile" uid="uid://dippmgo683fq8" path="res://text-box/Stitched Letters.png" id="23_0aeai"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8mpeu"]
 normal = Vector2(1, 0)
@@ -43,7 +47,7 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byvtf"]
-size = Vector2(449.746, 52.5657)
+size = Vector2(449.746, 67.9027)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2pyo4"]
 normal = Vector2(-1, 0)
@@ -445,15 +449,40 @@ position = Vector2(12822, 273)
 position = Vector2(258, -252)
 scale = Vector2(1.52649, 1.52649)
 texture = ExtResource("19_a7ena")
+script = ExtResource("20_qjfdw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Temple"]
-position = Vector2(266.433, 59.5652)
+[node name="Area2D" type="Area2D" parent="Temple"]
+position = Vector2(0.000976563, 6.10352e-05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temple/Area2D"]
+position = Vector2(266.198, 51.9001)
 rotation = -0.0304036
 shape = SubResource("RectangleShape2D_byvtf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Temple"]
 position = Vector2(492, -34)
 shape = SubResource("WorldBoundaryShape2D_2pyo4")
+
+[node name="Panel" type="Panel" parent="Temple"]
+visible = false
+offset_left = 522.0
+offset_top = -197.0
+offset_right = 706.0
+offset_bottom = -98.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4y8ur")
+script = ExtResource("21_igg5i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Temple/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.118056
+anchor_top = 0.242105
+anchor_right = 0.895833
+anchor_bottom = 0.863158
+theme_override_colors/default_color = Color(0, 0.347637, 0.37077, 1)
+theme_override_fonts/normal_font = ExtResource("23_0aeai")
+text = "PRESS E TO INTERACT"
 
 [node name="Player2D" parent="." instance=ExtResource("3_we32d")]
 scale = Vector2(2.75577, 2.75577)
@@ -586,4 +615,25 @@ texture = ExtResource("14_w1svh")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds3/Ground4"]
 polygon = PackedVector2Array(-1608, -148, -1510, -192, -1436, -168, -1364, -202, -1124, -156, -944, -148, -770, -180, -638, -160, -462, -118, -306, -100, -168, -124, 0, -138, 186, -136, 282, -144, 414, -132, 564, -126, 740, -166, 836, -160, 1054, -142, 1234, -130, 1318, -114, 1466, -124, 1608, -152, 1606, 248, -1606, 252)
 
+[node name="Panel" type="Panel" parent="."]
+offset_left = 253.0
+offset_top = -120.0
+offset_right = 541.0
+offset_bottom = -25.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4y8ur")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.118056
+anchor_top = 0.242105
+anchor_right = 0.895833
+anchor_bottom = 0.863158
+theme_override_colors/default_color = Color(0, 0.347637, 0.37077, 1)
+theme_override_fonts/normal_font = ExtResource("23_0aeai")
+text = "PRESS TAB TO TOGGLE REAL WORLD MODE"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="body_entered" from="Train/TrainBoardingArea" to="Train" method="_on_train_boarding_area_body_entered"]
+[connection signal="body_entered" from="Temple/Area2D" to="Temple/Temple" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Temple/Area2D" to="Temple/Panel" method="_on_area_2d_body_entered"]

@@ -18,17 +18,18 @@ modulate_color = Color(1, 0.853917, 0.63478, 1)
 [node name="TextBox" type="MarginContainer"]
 anchors_preset = -1
 anchor_left = 0.00364583
-anchor_top = 0.000925926
-anchor_right = 0.215867
-anchor_bottom = 0.230556
-offset_right = 11.5349
+anchor_top = 0.023
+anchor_right = 0.444
+anchor_bottom = 0.497
+offset_top = -23.84
+offset_right = 14.52
+offset_bottom = 0.23999
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.983403, 1)
 size_flags_horizontal = 4
 script = ExtResource("1_rhrpo")
 metadata/_edit_group_ = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
@@ -37,17 +38,16 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_b083p")
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.200477
-anchor_top = 0.233871
-anchor_right = 0.768496
-anchor_bottom = 0.754032
+anchor_left = 0.0965795
+anchor_top = 0.0711044
+anchor_right = 0.89336
+anchor_bottom = 0.90469
 offset_right = 6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.79314, 0.0573685, 0.504535, 1)
 theme_override_fonts/normal_font = ExtResource("3_2vrng")
-theme_override_font_sizes/normal_font_size = 25
-metadata/_edit_use_anchors_ = true
+theme_override_font_sizes/normal_font_size = 50
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

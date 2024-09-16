@@ -35,7 +35,7 @@ func _on_text_box_finished_displaying():
 
 func _unhandled_input(event):
 	if(
-		event.is_action_pressed("advance_dialog") &&
+		event.is_action_pressed("interact") &&
 		is_dialog_active && can_advance_line
 	):
 		
